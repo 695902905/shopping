@@ -1,0 +1,40 @@
+# 端口配置
+server:
+  port: 8095
+  servlet:
+    context-path: /shopping
+    # spring:
+    # datasource:
+    #  driver-class-name: com.mysql.jdbc.Driver
+    #  url: jdbc:mysql://localhost:3306/tdscy_process?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    #  username: root
+    #  password: root
+
+
+
+# 主数据源，默认的
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    #url: jdbc:mysql://192.168.0.254:3307/assignment?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    #username: root
+    #password: yst123
+    url: jdbc:mysql://localhost:3306/assignment?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    #password: 123456
+
+logging:
+  level:
+    com.gdyunst.assignment.mapper: trace
+  config: classpath:logback-dev.xml
+############################################## MYBATIS #################################################################
+mybatis:
+  mapper-locations[0]: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  type-handlers-package: com.gdyunst.assignment.model
+
